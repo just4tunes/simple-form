@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Form Integration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="output.css">
+
+
+</head>
+<body>
+
+    <div class="h-auto">
+
+
+
+        <div class="w-full h-auto sm:px-7 lg:flex pt-8 items-center justify-center bg-black  ">
+
+
+
+            <div class="relative bg-cover bg-center bg-no-repeat lg:w-[50%]" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTySWYfogEsFkAeX0RRBOR0xenvkhSBG8Ib1Q&shttps://www.shutterstock.com/image-vector/poland-colorful-brush-strokes-painted-260nw-418404454.jpg'); height: 700px;">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                
+                <!-- Your Texts or Other Content -->
+                <div class="relative z-10 p-4 text-white">
+                  <h1 class="font-serif text-4xl font-black lg:hidden mt-16">POLAND residence permit gives you the opportunity to:</h1>
+              
+                  <div class="flex pt-10 lg:hidden">
+                    <i class="fa fa-check-circle border-2 border-black p-2 text-green-500" aria-hidden="true"></i>
+                    <p>Live in a country with a developed economy</p>
+                  </div>
+              
+                  <div class="flex lg:hidden">
+                    <i class="fa fa-check-circle border-2 border-black p-2 text-green-500" aria-hidden="true"></i>
+                    <p>Open accounts in reliable banks</p>
+                  </div>
+              
+                  <div class="flex lg:hidden">
+                    <i class="fa fa-check-circle border-2 border-black p-2 text-green-500" aria-hidden="true"></i>
+                    <p>Do business in the POLAND</p>
+                  </div>
+              
+                  <div class="flex lg:hidden">
+                    <i class="fa fa-check-circle border-2 border-black p-2 text-green-500" aria-hidden="true"></i>
+                    <p>Easily apply for visas to Schengen countries and the USA</p>
+                  </div>
+              
+                  <!-- Learn More Button -->
+                  <div class="mt-14">
+                    <a href="#" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      Learn More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              
+          
+    
+    
+       
+    
+    
+    
+              <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg lg:w-[50%] ">
+                <h2 class="text-2xl font-semibold text-center mb-6">Application Form</h2>
+            
+                <form id="dataForm">
+                  <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+                    <input type="text" id="name" name="name" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                  </div>
+            
+                  <div class="mb-4">
+                    <label for="nationality" class="block text-sm font-medium text-gray-700">Nationality:</label>
+                    <input type="text" id="nationality" name="nationality" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                  </div>
+            
+                  <div class="mb-4">
+                    <label for="occupation" class="block text-sm font-medium text-gray-700">Occupation:</label>
+                    <input type="text" id="occupation" name="occupation" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                  </div>
+            
+                  <div class="mb-4">
+                    <label for="monthlyEarnings" class="block text-sm font-medium text-gray-700">Monthly Earnings:</label>
+                    <input type="number" id="monthlyEarnings" name="monthlyEarnings" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                  </div>
+            
+                  <div class="mb-4">
+                    <label for="reasonForApplication" class="block text-sm font-medium text-gray-700">Reason for Application:</label>
+                    <textarea id="reasonForApplication" name="reasonForApplication" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                  </div>
+            
+                  <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+                </form>
+    
+                <span>NOTE THIS FORM COMES WITH A PROCESSING FEE OF 150$!!!!</span>
+              </div>
+
+
+
+
+    </div>
+
+   
+
+  <script>
+    const SUPABASE_URL = "https://iirncptjwkqgsmryxfzd.supabase.co"; // Your Supabase Project URL
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlpcm5jcHRqd2txZ3Ntcnl4ZnpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcwNjAwMzIsImV4cCI6MjA1MjYzNjAzMn0.tcc7U-O6Hpvq-sWFIidx1Lo40QvbV_-62IlOMEptKTc"; // Your Supabase API Key
+    const TABLE_NAME = "form_data"; // Your table name
+
+    const form = document.getElementById("dataForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // Prevent the page from refreshing on form submission
+
+      const name = document.getElementById("name").value;
+      const nationality = document.getElementById("nationality").value;
+      const occupation = document.getElementById("occupation").value;
+      const monthlyEarnings = parseFloat(document.getElementById("monthlyEarnings").value); // Ensure this is treated as a number
+      const reasonForApplication = document.getElementById("reasonForApplication").value;
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`
+          },
+          body: JSON.stringify({
+            name,
+            nationality,
+            occupation,
+            monthlyEarnings, // Ensure it sends a number, not a string
+            reasonForApplication
+          })
+        });
+
+        if (response.ok) {
+          alert("Data submitted successfully!");
+          form.reset(); // Clear the form fields
+        } else {
+          const error = await response.json();
+          console.error("Error:", error);
+          alert("Failed to submit data. Please try again.");
+        }
+      } catch (error) {
+        console.error("Request failed:", error);
+        alert("An error occurred while submitting the form.");
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
